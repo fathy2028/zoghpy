@@ -24,7 +24,7 @@ const Products = () => {
       if (data?.success) {
         setProducts(data?.products);
       } else {
-        message.error("خطا في جلب الفئات");
+        message.error(" حدث خطا في جلب المنتجات");
       }
     } catch (error) {
       console.log(error);
@@ -42,7 +42,7 @@ const Products = () => {
       }
     } catch (error) {
       console.log(error);
-      message.error("حدث خطا");
+      message.error("خطا في الفئات");
     }
   };
 
@@ -50,14 +50,14 @@ const Products = () => {
     try {
       const { data } = await axios.delete(`${backendUrl}/api/v1/product/delete-product/${productId}`);
       if (data?.success) {
-        message.success("تم المسح بنجاح");
+        message.success("تم الحذف بنجاح");
         getAllProducts(); // Refresh the product list after deletion
       } else {
-        message.error("خطا في المسح");
+        message.error("فشل في الحذف");
       }
     } catch (error) {
       console.log(error);
-      message.error("حدث خطا");
+      message.error("خطا في الحذف");
     }
   };
 
@@ -86,7 +86,7 @@ const Products = () => {
         },
       });
       if (data?.success) {
-        message.success("تم التحديث بنجاح");
+        message.success("تم التعديل بنجاح");
         window.location.reload()
         getAllProducts();
         setIsModalVisible(false);
@@ -97,11 +97,11 @@ const Products = () => {
           fileInputRef.current.value = ""; // Reset file input
         }
       } else {
-        message.error("خطا في تجديث المنتج");
+        message.error("قشل في التعديل");
       }
     } catch (error) {
       console.log(error);
-      message.error("حدث خطا");
+      message.error("خطا في التعديل");
     }
   };
 
@@ -120,7 +120,7 @@ const Products = () => {
         setProducts(data);
       } catch (error) {
         console.log(error);
-        message.error("حدث خطا في البحث");
+        message.error("خطا في البحث");
       }
     }
   };
@@ -132,39 +132,39 @@ const Products = () => {
 
   const columns = [
     {
-      title: 'الاسم',
+      title: 'Name',
       dataIndex: 'name',
       key: 'name',
     },
     {
-      title: 'الوصف',
+      title: 'Description',
       dataIndex: 'description',
       key: 'description',
     },
     {
-      title: 'السعر',
+      title: 'Price',
       dataIndex: 'price',
       key: 'price',
     },
     {
-      title: 'الفئة',
+      title: 'Category',
       dataIndex: 'category',
       key: 'category',
       render: (category) => category.name,
     },
     {
-      title: 'الكمية',
+      title: 'Quantity',
       dataIndex: 'quantity',
       key: 'quantity',
     },
     {
-      title: 'صالح للشحن',
+      title: 'Shipping',
       dataIndex: 'shipping',
       key: 'shipping',
-      render: (shipping) => (shipping ? 'نعم' : 'لا'),
+      render: (shipping) => (shipping ? 'نعم ' : 'لا'),
     },
     {
-      title: 'الصورة',
+      title: 'Photo',
       dataIndex: 'photo',
       key: 'photo',
       render: (photo, record) => (
@@ -177,7 +177,7 @@ const Products = () => {
       ),
     },
     {
-      title: 'العمليات',
+      title: 'Actions',
       key: 'actions',
       render: (text, record) => (
         <>
@@ -185,13 +185,13 @@ const Products = () => {
             تعديل
           </Button>
           <Popconfirm
-            title="هل متاكد من انك تريد المسح؟"
+            title="Are you sure to delete this product?"
             onConfirm={() => deleteProduct(record._id)}
             okText="Yes"
             cancelText="No"
           >
             <Button type="primary" danger>
-              مسح
+              حذف
             </Button>
           </Popconfirm>
         </>
@@ -200,16 +200,16 @@ const Products = () => {
   ];
 
   return (
-    <Mylayout title="المنتجات - الزعبي">
+    <Mylayout title="Dashboard - All Products">
       <div className='container-fluid m-3 p-3'>
         <div className='row'>
           <div className='col-md-3'>
             <AdminMenu />
           </div>
           <div className='col-md-9'>
-            <h1>ادارة المنتجات</h1>
+            <h1>All Products</h1>
             <Input
-              placeholder="بحث"
+              placeholder="بحث في المنتجات"
               value={searchTerm}
               onChange={handleSearch}
               style={{ marginBottom: '20px' }}
@@ -219,7 +219,7 @@ const Products = () => {
         </div>
       </div>
       <Modal
-        title="تعديل المنتج"
+        title="Edit Product"
         visible={isModalVisible}
         onCancel={() => {
           setIsModalVisible(false);
@@ -247,29 +247,29 @@ const Products = () => {
           >
             <Form.Item
               name="name"
-              label="الاسم"
-              rules={[{ required: true, message: 'ادخال الاسم مطلوب' }]}
+              label="Name"
+              rules={[{ required: true, message: 'Please enter the product name' }]}
             >
               <Input />
             </Form.Item>
             <Form.Item
               name="description"
-              label="الوصف"
-              rules={[{ required: true, message: 'ادخال الوصف مطلوب' }]}
+              label="Description"
+              rules={[{ required: true, message: 'Please enter the product description' }]}
             >
               <Input />
             </Form.Item>
             <Form.Item
               name="price"
               label="Price"
-              rules={[{ required: true, message: 'ادخال السعر مطلوب' }]}
+              rules={[{ required: true, message: 'Please enter the product price' }]}
             >
               <Input />
             </Form.Item>
             <Form.Item
               name="category"
-              label="الفئة"
-              rules={[{ required: true, message: 'ادخل الفئة' }]}
+              label="Category"
+              rules={[{ required: true, message: 'Please select a category' }]}
             >
               <Select>
                 {categories.map(category => (
@@ -281,15 +281,15 @@ const Products = () => {
             </Form.Item>
             <Form.Item
               name="quantity"
-              label="الكمية"
-              rules={[{ required: true, message: 'ادخال الكمية مطلوب' }]}
+              label="Quantity"
+              rules={[{ required: true, message: 'Please enter the product quantity' }]}
             >
               <Input />
             </Form.Item>
             <Form.Item
               name="shipping"
-              label="صالح للشحن"
-              rules={[{ required: true, message: 'الرجاء الاختيار' }]}
+              label="Shipping"
+              rules={[{ required: true, message: 'Please select shipping option' }]}
             >
               <Select>
                 <Option value={true}>نعم</Option>
@@ -297,7 +297,7 @@ const Products = () => {
               </Select>
             </Form.Item>
             <Form.Item
-              label="الصورة"
+              label="Photo"
             >
               <input type="file" onChange={handleFileChange} ref={fileInputRef} />
             </Form.Item>
