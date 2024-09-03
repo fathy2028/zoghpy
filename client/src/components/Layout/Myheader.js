@@ -1,13 +1,3 @@
-import React from 'react';
-import { NavLink, Link } from "react-router-dom";
-import { GiShoppingBag } from "react-icons/gi";
-import { useAuth } from '../../context/auth';
-import toast from "react-hot-toast";
-import SearchInput from '../Form/SearchInput';
-import useCategory from '../../hooks/useCategory';
-import { useCart } from '../../context/cart';
-import { Badge } from "antd";
-
 const Myheader = () => {
     const [auth, setAuth] = useAuth();
     const categories = useCategory();
@@ -31,8 +21,8 @@ const Myheader = () => {
             fontFamily: 'Tajawal, sans-serif',
         },
         brand: {
-            color: '#333',
-            fontSize: '24px',
+            color: '#8B4513', // Wood color
+            fontSize: '30px', // Larger font size
             fontWeight: 'bold',
             letterSpacing: '1px',
         },
