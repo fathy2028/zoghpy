@@ -96,7 +96,7 @@ const CreateProduct = () => {
             <AdminMenu />
           </div>
           <div className='col-md-9'>
-            <h1>Product Management</h1>
+            <h1>انشاء منتج</h1>
             <form className='m-1 w-75' onSubmit={handleCreateProduct}>
               <Select
                 onChange={(value) => setCategory(value)}

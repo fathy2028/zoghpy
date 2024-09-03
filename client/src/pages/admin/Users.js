@@ -39,7 +39,7 @@ const Users = () => {
         toast.error(data.message);
       }
     } catch (error) {
-      toast.error('Failed to fetch users');
+      toast.error('خطا في جلب المستخدمين');
     }
   };
 
@@ -115,7 +115,7 @@ const Users = () => {
             <AdminMenu />
           </div>
           <div className='col-md-9'>
-            <h1>All Users</h1>
+            <h1>ادارة المستخدمين</h1>
             <div className="mb-3">
               <input
                 type="text"
@@ -129,20 +129,20 @@ const Users = () => {
               <div key={user._id} className="card mb-2">
                 <div className="card-body">
                   <h5 className="card-title">الاسم: {user.name}</h5>
-                  <p className="card-text">العنوان: {user.email}</p>
+                  <p className="card-text">الايميل: {user.email}</p>
                   <p className="card-text">رقم الموبايل: {user.phone}</p>
                   <p className="card-text">العنوان: {user.address}</p>
                   <button
                     className="btn btn-primary me-2"
                     onClick={() => handleEditClick(user)}
                   >
-                    Edit User
+                    تعديل المستخدم
                   </button>
                   <button
                     className="btn btn-danger"
                     onClick={() => deleteUser(user._id)}
                   >
-                    Delete User
+                    مسح المستخدم
                   </button>
                 </div>
               </div>
@@ -157,7 +157,7 @@ const Users = () => {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title">Edit User</h5>
+                <h5 className="modal-title">تعديل المستخدم</h5>
                 <button type="button" className="btn-close" onClick={() => setSelectedUser(null)}></button>
               </div>
               <div className="modal-body">

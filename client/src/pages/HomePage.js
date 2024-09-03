@@ -189,7 +189,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className='col-md-9'>
-            <h1 className='text-center'>جميع النتجات</h1>
+            <h1 className='text-center'>جميع المنتجات</h1>
             <div className='product-container'>
               {products.length > 0 ? products.map(product => (
                 <div key={product._id} className='product-card'>

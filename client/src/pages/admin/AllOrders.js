@@ -90,14 +90,14 @@ const AllOrders = () => {
     };
 
     return (
-        <Mylayout title={"Dashboard - All Orders"}>
+        <Mylayout title={"ادارة الطلبات - الزغبي"}>
             <div className="container-fluid m-3 p-3">
                 <div className="row">
                     <div className="col-md-3">
                         <AdminMenu />
                     </div>
                     <div className="col-md-9">
-                        <h1>All Orders</h1>
+                        <h1>ادارة الطلبات</h1>
                         <div className="mb-3">
                             <input
                                 type="text"

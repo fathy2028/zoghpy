@@ -207,7 +207,7 @@ const Products = () => {
             <AdminMenu />
           </div>
           <div className='col-md-9'>
-            <h1>All Products</h1>
+            <h1>ادارة المنتجات</h1>
             <Input
               placeholder="بحث"
               value={searchTerm}

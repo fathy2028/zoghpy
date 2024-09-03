@@ -43,10 +43,10 @@ const SearchInput = () => {
             <form className="d-flex" role="search" onSubmit={handlesubmit}>
                 <input 
                     type="search" 
-                    placeholder="Search"
+                    placeholder="بحث"
                     value={values.keyword} 
                     onChange={handleInputChange}
-                    aria-label="Search"
+                    aria-label="بحث"
                     style={{
                         width: '300px', 
                         padding: '0.25rem 0.5rem', 
