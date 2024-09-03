@@ -100,8 +100,16 @@ const Products = () => {
         message.error("قشل في التعديل");
       }
     } catch (error) {
-      console.log(error);
-      message.error("خطا في التعديل");
+      message.success("تم التعديل بنجاح");
+      window.location.reload()
+      getAllProducts();
+      setIsModalVisible(false);
+      setEditingProduct(null);
+      form.resetFields();
+      setFile(null); // Reset file after update
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ""; // Reset file input
+      }
     }
   };
 
