@@ -140,39 +140,39 @@ const Products = () => {
 
   const columns = [
     {
-      title: 'Name',
+      title: 'الاسم',
       dataIndex: 'name',
       key: 'name',
     },
     {
-      title: 'Description',
+      title: 'الوصف',
       dataIndex: 'description',
       key: 'description',
     },
     {
-      title: 'Price',
+      title: 'الثمن',
       dataIndex: 'price',
       key: 'price',
     },
     {
-      title: 'Category',
+      title: 'الفئة',
       dataIndex: 'category',
       key: 'category',
       render: (category) => category.name,
     },
     {
-      title: 'Quantity',
+      title: 'الكمية',
       dataIndex: 'quantity',
       key: 'quantity',
     },
     {
-      title: 'Shipping',
+      title: 'صالح للشحن',
       dataIndex: 'shipping',
       key: 'shipping',
       render: (shipping) => (shipping ? 'نعم ' : 'لا'),
     },
     {
-      title: 'Photo',
+      title: 'الصورة',
       dataIndex: 'photo',
       key: 'photo',
       render: (photo, record) => (
@@ -185,7 +185,7 @@ const Products = () => {
       ),
     },
     {
-      title: 'Actions',
+      title: 'العمليات',
       key: 'actions',
       render: (text, record) => (
         <>
@@ -255,28 +255,28 @@ const Products = () => {
           >
             <Form.Item
               name="name"
-              label="Name"
+              label="الاسم"
               rules={[{ required: true, message: 'Please enter the product name' }]}
             >
               <Input />
             </Form.Item>
             <Form.Item
               name="description"
-              label="Description"
+              label="الوصف"
               rules={[{ required: true, message: 'Please enter the product description' }]}
             >
               <Input />
             </Form.Item>
             <Form.Item
               name="price"
-              label="Price"
+              label="الثمن"
               rules={[{ required: true, message: 'Please enter the product price' }]}
             >
               <Input />
             </Form.Item>
             <Form.Item
               name="category"
-              label="Category"
+              label="الفئة"
               rules={[{ required: true, message: 'Please select a category' }]}
             >
               <Select>
@@ -289,14 +289,14 @@ const Products = () => {
             </Form.Item>
             <Form.Item
               name="quantity"
-              label="Quantity"
+              label="الكمية"
               rules={[{ required: true, message: 'Please enter the product quantity' }]}
             >
               <Input />
             </Form.Item>
             <Form.Item
               name="shipping"
-              label="Shipping"
+              label="صالح للشحن"
               rules={[{ required: true, message: 'Please select shipping option' }]}
             >
               <Select>
